@@ -1,5 +1,6 @@
 package fi.lauriari.to_docompose.navigation
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
@@ -9,6 +10,7 @@ import fi.lauriari.to_docompose.navigation.destinations.taskComposable
 import fi.lauriari.to_docompose.ui.viewmodels.SharedViewModel
 import fi.lauriari.to_docompose.util.Constants.LIST_SCREEN
 
+@ExperimentalMaterialApi
 @Composable
 fun SetupNavigation(
     navController: NavHostController,

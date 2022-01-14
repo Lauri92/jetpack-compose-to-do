@@ -1,6 +1,7 @@
 package fi.lauriari.to_docompose.navigation.destinations
 
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
@@ -10,6 +11,7 @@ import fi.lauriari.to_docompose.ui.viewmodels.SharedViewModel
 import fi.lauriari.to_docompose.util.Constants.LIST_ARGUMENT_KEY
 import fi.lauriari.to_docompose.util.Constants.LIST_SCREEN
 
+@ExperimentalMaterialApi
 fun NavGraphBuilder.listComposable(
     navigateToTaskScreen: (taskId: Int) -> Unit,
     sharedViewModel: SharedViewModel
