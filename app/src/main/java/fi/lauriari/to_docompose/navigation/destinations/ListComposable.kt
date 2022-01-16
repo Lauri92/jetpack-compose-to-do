@@ -1,7 +1,9 @@
 package fi.lauriari.to_docompose.navigation.destinations
 
 
+import android.util.Log
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
@@ -10,6 +12,7 @@ import fi.lauriari.to_docompose.ui.screens.list.ListScreen
 import fi.lauriari.to_docompose.ui.viewmodels.SharedViewModel
 import fi.lauriari.to_docompose.util.Constants.LIST_ARGUMENT_KEY
 import fi.lauriari.to_docompose.util.Constants.LIST_SCREEN
+import fi.lauriari.to_docompose.util.toAction
 
 @ExperimentalMaterialApi
 fun NavGraphBuilder.listComposable(
@@ -21,7 +24,13 @@ fun NavGraphBuilder.listComposable(
         arguments = listOf(navArgument(LIST_ARGUMENT_KEY) {
             type = NavType.StringType
         })
-    ) {
+    ) { navBackStackEntry ->
+        val action = navBackStackEntry.arguments?.getString(LIST_ARGUMENT_KEY).toAction()
+
+        LaunchedEffect(key1 = action) {
+            sharedViewModel.action.value = action
+        }
+
         ListScreen(
             navigateToTaskScreen = navigateToTaskScreen,
             sharedViewModel = sharedViewModel
