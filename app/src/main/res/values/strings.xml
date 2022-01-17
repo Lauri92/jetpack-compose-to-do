@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">To-Do Compose</string>
 
+    <string name="delete_task">Remove \'%1$s\'?</string>
+    <string name="delete_task_confirmation">Are you sure you want to remove \'%1$s\'?</string>
     <string name="add_button">Add Button</string>
     <string name="search_action">Search Tasks</string>
     <string name="sort_action">Sort Tasks</string>
@@ -18,4 +20,6 @@
     <string name="drop_down_arrow">Drop-Down Arrow Icon</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
