@@ -2,11 +2,13 @@ package fi.lauriari.to_docompose.ui.viewmodels
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.datastore.core.DataStore
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import fi.lauriari.to_docompose.data.models.Priority
 import fi.lauriari.to_docompose.data.models.ToDoTask
+import fi.lauriari.to_docompose.data.repositories.DataStoreRepository
 import fi.lauriari.to_docompose.data.repositories.ToDoRepository
 import fi.lauriari.to_docompose.util.Action
 import fi.lauriari.to_docompose.util.Constants.MAX_TITLE_LENGTH
@@ -22,7 +24,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SharedViewModel @Inject constructor(
-    private val repository: ToDoRepository
+    private val repository: ToDoRepository,
+    private val dataStoreRepository: DataStoreRepository,
 ) : ViewModel() {
 
     val action: MutableState<Action> = mutableStateOf(Action.NO_ACTION)
