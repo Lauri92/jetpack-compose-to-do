@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import fi.lauriari.to_docompose.R
 import fi.lauriari.to_docompose.ui.theme.LOGO_HEIGHT
@@ -52,7 +53,12 @@ fun SplashScreen(
         navigateToListScreen()
     }
 
+    Splash(offsetState = offsetState, alphaState = alphaState)
+}
 
+
+@Composable
+fun Splash(offsetState: Dp, alphaState: Float) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -82,9 +88,7 @@ fun getLogo(): Int {
 @Composable
 @Preview
 private fun SplashScreenPreview() {
-    SplashScreen(
-        navigateToListScreen = {}
-    )
+    Splash(offsetState = 0.dp, alphaState = 1f)
 }
 
 /*
